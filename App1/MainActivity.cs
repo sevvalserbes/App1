@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace App1
 {
-    [Activity(Label = "App1", MainLauncher = true)]
+    [Activity(Label = "App1")]
     public class MainActivity : Activity
     {
         EditText PersonName;

@@ -59,8 +59,8 @@ namespace App1
         }
 
         private void ShowButton_Click(object sender, System.EventArgs e)
-        {
-            
+        {            
+
             //Database connection set up
             var db = new SQLiteConnection(dbPath);
 
@@ -69,13 +69,13 @@ namespace App1
 
             //Connect to the relevent table 
             var table = db.Table<Person>();
-            int count = 0;
+            //int count = 0;
 
-            //PROBLEM!!!!!!!!
+            People.Clear();
             foreach (var item in table)
             {
                 People.Add(item);
-                count++;
+                //count++;
             }
             
         }

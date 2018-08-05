@@ -4,12 +4,15 @@ using Android.OS;
 using System.IO;
 using SQLite;
 using System.Collections.Generic;
+using SupportToolbar = Android.Support.V7.Widget.Toolbar;
+using Android.Support.V7.App;
 
 namespace App1
 {
-    [Activity(Label = "App1")]
-    public class MainActivity : Activity
+    [Activity(Label = "App1", Theme = "@style/MyTheme")]
+    public class MainActivity : AppCompatActivity
     {
+        private SupportToolbar mToolbar;
         EditText PersonName;
         EditText PersonLName;
         TextView TName;
@@ -33,7 +36,11 @@ namespace App1
             TLastName = FindViewById<TextView>(id: Resource.Id.txtLastName);
             SaveButton = FindViewById<Button>(id: Resource.Id.btnSave);
             ShowButton = FindViewById<Button>(id: Resource.Id.btnShow);
+
+            mToolbar = FindViewById<SupportToolbar>(Resource.Id.toolbarMain);
+            SetSupportActionBar(mToolbar);
             
+
             SaveButton.Click += SaveButton_Click;
             ShowButton.Click += ShowButton_Click;                       
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -12,24 +13,29 @@
         android:background="?android:attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
-    <android.support.v4.widget.DrawerLayout>
-    <!--The Main Content View-->
-        <RelativeLayout>
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <!--The Main Content-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Drawer Toggle"
                 android:layout_centerInParent="true" />
         </RelativeLayout>
-    <!--Left Navigation Drawer-->
+    <!--Left Drawer-->
         <ListView
-            android:id="@+id/leftDrawer"
+            android:id="@+id/left_drawer"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:choiceMode="singleChoice"
             android:divider="#818181"
             android:dividerHeight="1dp"
-            android:background="#E3F2Fd" />
+            android:background="#E3F2FD" />
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>

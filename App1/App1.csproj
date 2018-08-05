@@ -118,6 +118,7 @@
   <ItemGroup>
     <Compile Include="ActionBarDrawerToggle.cs" />
     <Compile Include="HomeActivity.cs" />
+    <Compile Include="ListActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="PeopleListAdapter.cs" />
     <Compile Include="Person.cs" />

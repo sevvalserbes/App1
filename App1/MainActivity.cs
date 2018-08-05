@@ -30,6 +30,7 @@ namespace App1
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Main);
 
+
             PersonName = FindViewById<EditText>(id: Resource.Id.personName);
             PersonLName = FindViewById<EditText>(id: Resource.Id.personLName);
             TName = FindViewById<TextView>(id: Resource.Id.txtName);
@@ -39,13 +40,13 @@ namespace App1
 
             mToolbar = FindViewById<SupportToolbar>(Resource.Id.toolbarMain);
             SetSupportActionBar(mToolbar);
-            
+
 
             SaveButton.Click += SaveButton_Click;
-            ShowButton.Click += ShowButton_Click;                       
+            ShowButton.Click += ShowButton_Click;
 
         }
-        
+
         private void SaveButton_Click(object sender, System.EventArgs e)
         {
             //Database connection set up
@@ -55,24 +56,24 @@ namespace App1
 
             //Create new object 
             Person person = new Person(PersonName.Text, PersonLName.Text);
-            
+
 
             //Store the object into the table
             db.Insert(person);
-                               
 
-            Toast.MakeText(this, "Kaydedildi", ToastLength.Short).Show();        
-            
+
+            Toast.MakeText(this, "Kaydedildi", ToastLength.Short).Show();
+
         }
 
         private void ShowButton_Click(object sender, System.EventArgs e)
-        {            
+        {
 
             //Database connection set up
             var db = new SQLiteConnection(dbPath);
 
             ListPeople = FindViewById<ListView>(Resource.Id.listViewPeople);
-            ListPeople.Adapter = new PeopleListAdapter(this, People);            
+            ListPeople.Adapter = new PeopleListAdapter(this, People);
 
             //Connect to the relevent table 
             var table = db.Table<Person>();
@@ -84,7 +85,7 @@ namespace App1
                 People.Add(item);
                 //count++;
             }
-            
+
         }
 
     }

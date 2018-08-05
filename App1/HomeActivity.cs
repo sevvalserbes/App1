@@ -31,9 +31,11 @@ namespace App1
             mDrawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             mListView = FindViewById<ListView>(Resource.Id.left_drawer);
 
-            mCategory = new List<string>();
-            mCategory.Add("Yeni Kayıt");
-            mCategory.Add("Rehber");
+            mCategory = new List<string>
+            {
+                "Yeni Kayıt",
+                "Rehber"
+            };
 
             mCategoryAdapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, mCategory);
             mListView.Adapter = mCategoryAdapter;
@@ -75,6 +77,10 @@ namespace App1
             {
                 case 0:
                     StartActivity(typeof(MainActivity));
+                    break;
+
+                case 1:
+                    StartActivity(typeof(ListActivity));
                     break;
                 default:
                     break;

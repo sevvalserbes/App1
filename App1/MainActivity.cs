@@ -6,10 +6,11 @@ using SQLite;
 using System.Collections.Generic;
 using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V7.App;
+using Android.Views;
 
 namespace App1
 {
-    [Activity(Label = "App1", Theme = "@style/MyTheme")]
+    [Activity(Label = "Yeni Kayıt", Theme = "@style/MyTheme")]
     public class MainActivity : AppCompatActivity
     {
         private SupportToolbar mToolbar;
@@ -39,6 +40,8 @@ namespace App1
             ShowButton = FindViewById<Button>(id: Resource.Id.btnShow);
 
             mToolbar = FindViewById<SupportToolbar>(Resource.Id.toolbarMain);
+            mToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
+
             SetSupportActionBar(mToolbar);
 
 
@@ -79,15 +82,31 @@ namespace App1
             var table = db.Table<Person>();
             //int count = 0;
 
-            People.Clear();
-            foreach (var item in table)
+            try
             {
-                People.Add(item);
-                //count++;
+                People.Clear();
+                foreach (var item in table)
+                {
+                    People.Add(item);
+                    //count++;
+                }
+
             }
+            catch (SQLiteException NoSuchTable)
+            {
+
+                Toast.MakeText(this, "Gösterilecek kişi yok", ToastLength.Short).Show();
+            }           
+           
 
         }
 
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Android.Resource.Id.Home)
+                this.OnBackPressed();
+            return base.OnOptionsItemSelected(item);
+        }
     }
 }
 

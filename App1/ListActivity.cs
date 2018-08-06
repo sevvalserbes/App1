@@ -16,7 +16,7 @@ using Android.Support.V7.App;
 
 namespace App1
 {
-    [Activity(Label = "ListActivity", Theme = "@style/MyTheme")]
+    [Activity(Label = "Rehber", Theme = "@style/MyTheme")]
     public class ListActivity : AppCompatActivity
     {
         private SupportToolbar mToolbar;
@@ -35,20 +35,38 @@ namespace App1
             ListPeople.Adapter = new PeopleListAdapter(this, People);
 
             mToolbar = FindViewById<SupportToolbar>(Resource.Id.toolbarList);
-            SetSupportActionBar(mToolbar);
+            mToolbar.SetNavigationIcon(Resource.Drawable.abc_ic_ab_back_material);
+
+            SetSupportActionBar(mToolbar);           
+
 
             //Connect to the relevent table 
             var table = db.Table<Person>();
-            //int count = 0;
 
-            People.Clear();
-            foreach (var item in table)
+            try
             {
-                People.Add(item);
-                //count++;
+                People.Clear();
+                foreach (var item in table)
+                {
+                    People.Add(item);                    
+                }
+
+            }
+            catch (SQLiteException NoSuchTable)
+            {
+
+                Toast.MakeText(this, "Gösterilecek kişi yok", ToastLength.Short).Show();
             }
 
 
         }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Android.Resource.Id.Home)
+                this.OnBackPressed();
+            return base.OnOptionsItemSelected(item);
+        }
+
     }
 }

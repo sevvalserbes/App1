@@ -54,7 +54,7 @@ namespace App1
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             mDrawerToggle.SyncState();
 
-
+            
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -77,15 +77,19 @@ namespace App1
             {
                 case 0:
                     StartActivity(typeof(MainActivity));
+                    mDrawerLayout.CloseDrawer((int)GravityFlags.Left);
                     break;
 
                 case 1:
                     StartActivity(typeof(ListActivity));
+                    mDrawerLayout.CloseDrawer((int)GravityFlags.Left);
                     break;
                 default:
                     break;
             }
         }
+
+       
     }
 }
 

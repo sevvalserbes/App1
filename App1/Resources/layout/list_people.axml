@@ -12,6 +12,10 @@
         android:background="?android:attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+    <EditText
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/search_bar" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_height="match_parent"

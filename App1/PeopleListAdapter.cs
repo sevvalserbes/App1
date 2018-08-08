@@ -50,11 +50,15 @@ namespace App1
             View view = convertView;
             if(view == null)
             {
-                view = mContext.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
+                view = mContext.LayoutInflater.Inflate(Resource.Layout.list_item, null);
             }
 
-            TextView txtName = view.FindViewById<TextView>(Android.Resource.Id.Text1);
-            txtName.Text = mPeople[position].ToString();
+            TextView txtName = view.FindViewById<TextView>(Resource.Id.txtName);
+            txtName.Text = mPeople[position].FirstName;
+
+            TextView txtLName = view.FindViewById<TextView>(Resource.Id.txtLName);
+            txtLName.Text = mPeople[position].LastName;
+
             return view;
         }
     }

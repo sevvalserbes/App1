@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionBarDrawerToggle.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="HomeActivity.cs" />
     <Compile Include="ListActivity.cs" />
     <Compile Include="MainActivity.cs" />
@@ -126,7 +127,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
